@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: supermario
+  name: supermario
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: supermario
+  template:
+    metadata:
+      labels:
+        name: supermario
+    spec:
+      containers:
+      - image: docker.io/pengbai/docker-supermario:latest
+        name: supermario
+        ports:
+        - containerPort: 8080
+          name: http-server
